@@ -8,7 +8,6 @@ import React from "react";
 
 export default (props)=>{
     const {comments,loading , hasMore, setPageNumber, pageNumber}= props
-    console.log('has more', hasMore)
 return (
     <>
         <Container sx={{ py: 8 }} maxWidth="md">

@@ -38,8 +38,7 @@ export default function useCommentsPaginations(pageNumber) {
                 //@ts-ignore
                 return createUniqueCommentsArray([...prevComments, ...res.data])
             })
-            console.log('pageNumber', pageNumber)
-            console.log('getLastPgeFromHeader', getLastPgeFromHeader(res.headers))
+
             setHasMore(pageNumber !== getLastPgeFromHeader(res.headers))
             setLoading(false)
         }).catch(e => {
