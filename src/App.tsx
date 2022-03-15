@@ -1,9 +1,11 @@
 import React ,{useState} from 'react';
 import CommentsGrid from "./Commnets";
 import ErrorBoundary from "./ErrorBoundary";
-import Header from "./Header";
+import Header from "./Header/Header";
+
 
 function App() {
+
   return (
   <ErrorBoundary>
     <div className="App">

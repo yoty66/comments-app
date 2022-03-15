@@ -1,15 +1,11 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 const PAGE_SIZE = 20
-
-
-
+const URL= 'https://jsonplaceholder.typicode.com/comments'
 const getLastPgeFromHeader= (headers)=>
     Number.parseInt(headers["link"].split(",").find(str => str.includes("last")).match(/page=(\d*)/)[1])
 
-
-
-// The builtin set class doesn't have the ability to compare obj attributes
+// The built-in Set class doesn't have the ability to compare obj attributes
 const createUniqueCommentsArray=(comments)=>{
     let obj={}
     comments.forEach((comment)=>obj[comment.id]= comment)
