@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-const PAGE_SIZE=20
+const PAGE_SIZE = 20
+
+
+
+const getLastPgeFromHeader= (headers)=> {
+    Number.parseInt(headers["link"].split(",").find(str => str.includes("last")).match(/page=(\d*)/)[1])
+}
 
 
 // The builtin set class doesn't have the ability to compare obj attributes
@@ -32,7 +38,7 @@ export default function useCommentsPaginations(pageNumber) {
                 //@ts-ignore
                 return createUniqueCommentsArray([...prevComments, ...res.data])
             })
-            setHasMore(res.data?.length === PAGE_SIZE)
+            setHasMore(pageNumber !== getLastPgeFromHeader(res.headers))
             setLoading(false)
         }).catch(e => {
             setError(e.message)
