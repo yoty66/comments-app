@@ -4,6 +4,8 @@ import CommentCard from "./CommentCard";
 import React, {useContext, useState} from "react";
 import useCommentsPaginations from "./useCommentsPaggination";
 import {errorContext} from "./ErrorBoundary";
+import IconButton from "@mui/material/IconButton";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 export default (props)=>{
@@ -24,8 +26,8 @@ export default (props)=>{
     }
 
     return (
-
-        <><Container sx={{ py: 8 }} maxWidth="md">
+    <>
+    <Container sx={{ py: 8 }} maxWidth="md">
         <Grid container spacing={5}>
             {comments.map(comment=> {
                 return (< Grid item xs={6}>
@@ -36,24 +38,29 @@ export default (props)=>{
         </Grid>
     </Container>
 
+        <Container sx={{ py: 8 }} maxWidth="md">
+            <Grid container spacing={5}  alignItems="center"
+                  justifyContent="center">
+                { hasMore &&
+                    ( <IconButton
+                    aria-label="show-more"
+                    onClick={()=>setPageNumber(pageNumber+1)}
+                    color="primary"
+                    size={"large"}
+                    >
+                    <ExpandMoreIcon  fontSize="large" />
+                    </IconButton>)
+                }
+            </Grid>
+        </Container>
 
-    <header className="App-header">
-
-        <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        { hasMore &&  <a
-            className="App-link"
-            onClick={()=>setPageNumber(pageNumber+1)}
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            next
-        </a>}
 
 
-    </header>
 
-        </>)
+
+
+
+
+        </> )
 
 }
