@@ -5,6 +5,8 @@ import React, {useContext, useState} from "react";
 import useCommentsPaginations from "./useCommentsPaggination";
 import {errorContext} from "./ErrorBoundary";
 import IconButton from "@mui/material/IconButton";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
@@ -41,7 +43,8 @@ export default (props)=>{
         <Container sx={{ py: 8 }} maxWidth="md">
             <Grid container spacing={5}  alignItems="center"
                   justifyContent="center">
-                { hasMore &&
+                {loading &&   <CircularProgress />}
+                { hasMore && !loading &&
                     ( <IconButton
                     aria-label="show-more"
                     onClick={()=>setPageNumber(pageNumber+1)}
@@ -53,12 +56,6 @@ export default (props)=>{
                 }
             </Grid>
         </Container>
-
-
-
-
-
-
 
 
         </> )
