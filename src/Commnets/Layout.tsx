@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CommentCard from "../CommentCard";
+import CommentCard from "./CommentCard";
 import React from "react";
 
 export default (props)=>{

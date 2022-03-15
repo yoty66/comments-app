@@ -1,19 +1,13 @@
 import React ,{useState} from 'react';
 import CommentsGrid from "./Commnets";
 import ErrorBoundary from "./ErrorBoundary";
+import Header from "./Header";
 
-const IMAGE_URL='https://global-uploads.webflow.com/5d53975001f72a80a5fdf1f2/5f0b178d3ebbaecd6db65217_Steps%20Logo.svg'
 function App() {
-
-
-
-
-
-
   return (
   <ErrorBoundary>
     <div className="App">
-      <img src={IMAGE_URL} className="App-logo" alt="logo" />
+      <Header/>
       <CommentsGrid/>
     </div>
   </ErrorBoundary>
